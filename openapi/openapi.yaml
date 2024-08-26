@@ -4396,7 +4396,15 @@ paths:
                 properties: 
                   error:
                     type: string
-components: 
+security:
+    - bearer: []
+components:
+  securitySchemes:
+    bearer:
+      type: apiKey
+      description: API uses a token-based authentication over HTTPS. A specific HTTP header with the bearer token must be added to any API request. To acquire a bearer token, please speak with your account manager.
+      name: Authorization
+      in: header
   schemas: 
     Company:
       type: object
