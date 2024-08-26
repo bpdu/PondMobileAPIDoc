@@ -1,16 +1,19 @@
 openapi: 3.0.0
-
 info:
-  title: Pond Mobile API reference
+  title: Pond Mobile API Reference
+  description: Use API calls to get the list of SIM cards, retrieve inventory, group and template information, register a SIM transfer, control a packet and traffic policy on a specific SIM, assign wallet and whitelists, apply some security profiles and send SMS. 
   contact:
+    name: Pond Mobile     
+    url: https://www.pondmobile.com
     email: support@pondmobile.com
   version: '2.1'
-
+  termsOfService: https://www.pondmobile.com/terms-and-conditions/
+  license:
+    name: MIT
+    url: https://opensource.org/license/mit/
 servers:
   - url: https://api.pondmobile.com/v2.1
-
 paths:
-    
   /core/countries:
     get:
       tags: 
@@ -128,7 +131,6 @@ paths:
                 properties: 
                   error:
                     type: string
-  
   /core/companies:
     get:
       tags: 
@@ -246,7 +248,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
     post:
       tags: 
         - Core
@@ -349,7 +350,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /core/companies/{sub_company_id}:
     get:
       tags: 
@@ -444,7 +444,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
     put:
       tags: 
         - Core
@@ -549,7 +548,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /inventory/inventories:
     get:
       tags: 
@@ -672,7 +670,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
     post:
       tags: 
         - Inventory
@@ -784,7 +781,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /inventory/inventories/{inventory_id}:
     get:
       tags: 
@@ -879,7 +875,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
     put:
       tags: 
         - Inventory
@@ -978,7 +973,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /inventory/groups:
     get:
       tags: 
@@ -1101,7 +1095,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
     post:
       tags: 
         - Inventory
@@ -1204,7 +1197,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /inventory/groups/{group_id}:
     get:
       tags: 
@@ -1299,7 +1291,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
     put:
       tags: 
         - Inventory
@@ -1398,7 +1389,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /inventory/sim-registries:
     get:
       tags: 
@@ -1526,7 +1516,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /inventory/sim-registries/{iccid}:
     get:
       tags: 
@@ -1621,7 +1610,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
     put:
       tags: 
         - Inventory
@@ -1720,7 +1708,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
     delete:
       tags: 
         - Inventory
@@ -1810,7 +1797,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /inventory/sim-transfers:
     get:
       tags: 
@@ -1928,7 +1914,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
     post:
       tags: 
         - Inventory
@@ -2064,7 +2049,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /inventory/sim-transfers/{sim_transfer_id}:
     get:
       tags: 
@@ -2159,7 +2143,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /inventory/sim-transfers/{sim_transfer_id}/report:
     get:
       tags: 
@@ -2254,14 +2237,13 @@ paths:
                 properties: 
                   error:
                     type: string
-
-  /esim-rsp/euicc-profiles/{iccid}:
+  /esim-rsp/EUICC-profiles/{iccid}:
     get:
       tags: 
         - eSIM RSP
-      summary: Retrieve an eUICC profile.
+      summary: Retrieve an EUICC profile.
       operationId: getEUICCProfileById
-      description: The endpoint returns eUICC (eSIM) profile information of the specified ICCID.
+      description: The endpoint returns EUICC (eSIM) profile information of the specified ICCID.
       parameters: 
       - name: iccid
         in: path
@@ -2281,7 +2263,7 @@ paths:
             type: string
       responses:
         '200':
-          description: On success, the eUICC profile details is returned.
+          description: On success, the EUICC profile details is returned.
           headers: 
             request-id:
               description: The 'Request-ID' from request header will be provided as it is in response header.
@@ -2294,7 +2276,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/eUICC_profile'
+                $ref: '#/components/schemas/EUICC_profile'
         '400':
           description: Invalid inputs.
           headers: 
@@ -2349,7 +2331,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /pcr/package-templates/{package_template_id}:
     get:
       tags: 
@@ -2444,7 +2425,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /pcr/package-templates:
     get:
       tags: 
@@ -2567,7 +2547,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
     post:
       tags: 
         - Policy and Charging Rules (PCR)
@@ -2716,7 +2695,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /pcr/packages/{package_id}:
     get:
       tags: 
@@ -2811,7 +2789,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
     put:
       tags: 
         - Policy and Charging Rules (PCR)
@@ -2910,7 +2887,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /pcr/packages:
     get:
       tags: 
@@ -3048,7 +3024,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
     post:
       tags: 
         - Policy and Charging Rules (PCR)
@@ -3151,7 +3126,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /pcr/sim-pcr-profiles/{iccid}:
     get:
       tags: 
@@ -3246,7 +3220,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
     put:
       tags: 
         - Policy and Charging Rules (PCR)
@@ -3369,7 +3342,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /pcr/traffic-policies:
     get:
       tags: 
@@ -3487,7 +3459,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /pcr/traffic-policies/{traffic_policy_id}:
     get:
       tags: 
@@ -3582,7 +3553,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /pcr/wallets/{wallet_id}:
     get:
       tags: 
@@ -3677,7 +3647,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
     patch:
       tags: 
         - Policy and Charging Rules (PCR)
@@ -3783,7 +3752,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /session-management/open-data-sessions:
     get:
       tags: 
@@ -3883,7 +3851,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /network-access/whitelists:
     get:
       tags: 
@@ -4006,7 +3973,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /network-access/whitelists/{whitelist_id}/assigned-sims:
     get:
       tags: 
@@ -4130,7 +4096,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
     post:
       tags: 
         - Network access
@@ -4231,7 +4196,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /network-access/cancel-lu-requests:
     post:
       tags: 
@@ -4321,7 +4285,6 @@ paths:
                 properties: 
                   error:
                     type: string
-
   /a2p-sms/sms-requests:
     post:
       tags: 
@@ -4433,11 +4396,8 @@ paths:
                 properties: 
                   error:
                     type: string
-
-
 components: 
   schemas: 
-
     Company:
       type: object
       properties:
@@ -4467,7 +4427,6 @@ components:
           description: The date and time when the sub-company was deactivated, expressed as a Unix timestamp in milliseconds. If the sub-company is currently active, this field will be null.
           type: integer
           format: int64
-
     Country:
       type: object
       properties:
@@ -4480,7 +4439,6 @@ components:
         iso3:
           description: The ISO 3-letter code of the country, represented as a string.
           type: string
-
     Inventory:
       type: object
       properties:
@@ -4524,7 +4482,6 @@ components:
         whitelist: 
           description: When an inventory is generated using a template, it automatically applies a network access configuration. This configuration establishes an initial whitelist that can only be modified by the creator. Admins of the Lv3 accounts are limited to viewing the whitelist or assigning it to a SIM within the corresponding inventory. If available, the whitelist ID is returned in this field.
           type: integer
-
     Group:
       type: object
       properties:
@@ -4568,7 +4525,6 @@ components:
         wallet:
           description: The automatically created and attached wallet for the group. This wallet is associated with the group and can hold a balance that can be used for various purposes. The wallet allows for setting an overdraft limit, which enables the balance to go below zero up to the specified limit.  The SIMs within the group can charge their usage towards their own individual wallets or towards this group's wallet. This configuration is determined by the "Wallet Mode" setting in the SIM's Policy and Charging Rules (PCR) profile.  The wallet provides flexibility in managing and distributing funds within the group. It can be used to achieve a pooled balance where the usage charges of all SIMs in the group contribute to and draw from a shared balance.
           type: integer
-
     IMSI:
       type: object
       properties:
@@ -4579,7 +4535,6 @@ components:
           description: The IMSI.
           type: integer
           format: int64
-
     SIM:
       type: object
       properties:
@@ -4619,7 +4574,6 @@ components:
           description: The identifier of the mapped IMSI (internal), if applicable.
           type: integer
           format: int64
-    
     SIM_transfer:
       type: object
       properties:
@@ -4663,7 +4617,6 @@ components:
             id:
               description: The identifier of the inventory.
               type: integer
-
     SIM_transfer_report:
       type: object
       properties:
@@ -4683,8 +4636,7 @@ components:
         failure_message:
           description: An optional message providing additional details about the transfer failure (if applicable).
           type: string
-
-    eUICC_profile:
+    EUICC_profile:
       type: object
       properties:
         iccid:
@@ -4732,7 +4684,6 @@ components:
         eid:
           description: The EID (eSIM Identifier) is the unique ID assigned to a device for eSIM activation. It remains empty until the eSIM is successfully activated, at which point the EID becomes available
           type: string
-
     Package_template:
       type: object
       properties:
@@ -4806,7 +4757,6 @@ components:
           description: The date when the package template was deactivated, expressed as a Unix timestamp (In millisecond). It will be 0 if the template is active or has never been deactivated.
           type: integer
           format: int64
-
     Package:
       type: object
       properties:
@@ -4889,7 +4839,6 @@ components:
             activation_time_allowance:
               description: The time duration within which the package associated with the template can be activated after its creation. The value for this field is in seconds.
               type: integer
-
     Wallet:
       type: object
       properties:
@@ -4918,7 +4867,6 @@ components:
         overdraft: 
           description: The overdraft limit of the wallet.
           type: number
-
     PCR_profile:
       type: object
       properties:
@@ -4956,7 +4904,6 @@ components:
           type: array
           items: 
             $ref: '#/components/schemas/Wallet'
-
     Traffic_policy:
       type: object
       properties:
@@ -4966,14 +4913,12 @@ components:
         description: 
           description: This field contains a concise summary of the traffic policy, outlining how it manages data throttling for the SIM card.
           type: string
-    
     Iccid:
       type: object
       properties:
         id:
           description: The ICCID identifier (Integrated Circuit Card Identifier) of the SIM.
           type: string
-
     Session:
       type: object
       properties:
@@ -5006,7 +4951,6 @@ components:
         charge_towards: 
           description: The charging mechanism for the data session, such as "PACKAGE" or "BALANCE".
           type: string
-
     Whitelist:
       type: object
       properties:
@@ -5033,7 +4977,6 @@ components:
         parent_whitelist:
           description: The identifier of the parent whitelist, if applicable, represented as an integer. If a parent whitelist is specified, the number of available entries in the current whitelist is limited by the parent whitelist. This means that the parent whitelist defines the superset of networks available to the SIM.
           type: integer
-
     Header:
       type: object
       properties:
@@ -5041,5 +4984,3 @@ components:
           type: string
         value:
           type: string
-
-          
