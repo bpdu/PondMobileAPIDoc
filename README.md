@@ -1,5 +1,3 @@
-Pond Mobile API v.2.1 Reference
-
 # Pond Mobile API v.2.1  
 
 This repository contains [OpenAPI](https://www.openapis.org/) descriptions of [Pond Mobile API v.2.1](https://api.pondmobile.com/v.2.1).
